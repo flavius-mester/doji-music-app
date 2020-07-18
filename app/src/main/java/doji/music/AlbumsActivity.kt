@@ -10,6 +10,7 @@ import doji.music.domain.Album
 import doji.music.domain.AlbumRepo
 import doji.music.presentation.AlbumsViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.album_item.view.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -29,7 +30,7 @@ class AlbumsActivity : AppCompatActivity() {
     }
 
     private fun setupButtons() {
-        toggleLayout.setOnClickListener {
+        toggleButton.setOnClickListener {
             albumsViewModel.send(AlbumsViewModel.Action.ToggleLayout())
         }
     }
@@ -61,6 +62,7 @@ class AlbumsActivity : AppCompatActivity() {
     }
 
     private fun showAlbums(state: AlbumsViewModel.State.Albums) {
+        updateButtonIcon(state.layout)
         albumsAdapter.updateData(state.albums)
         albumsRV.post {
             TransitionManager.beginDelayedTransition(albumsRV)
@@ -68,5 +70,13 @@ class AlbumsActivity : AppCompatActivity() {
             albumsAdapter.notifyItemRangeChanged(0, albumsAdapter.itemCount)
 
         }
+    }
+
+    private fun updateButtonIcon(layout: AlbumsViewModel.Layout) {
+        val iconResource = when (layout) {
+            AlbumsViewModel.Layout.Grid -> R.drawable.view_agenda_outline
+            AlbumsViewModel.Layout.List -> R.drawable.view_grid_outline
+        }
+        toggleButton.setImageResource(iconResource)
     }
 }
