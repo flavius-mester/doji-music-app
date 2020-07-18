@@ -8,5 +8,9 @@
     </style>
 
     <style name="Headline" parent="TextAppearance.AppCompat.Headline"/>
+    <style name="AlbumName" parent="TextAppearance.AppCompat.Body1"/>
+    <style name="AlbumArtist" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textStyle">bold</item>
+    </style>
     <style name="AlbumsTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
 </resources>

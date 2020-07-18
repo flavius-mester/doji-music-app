@@ -13,11 +13,13 @@ class AlbumViewHolder(itemView: View, val listener: (Album) -> Unit) : RecyclerV
     }
     fun bindView(album: Album) {
         this.album = album
-        itemView.label.text = album.name
+        itemView.name.text = album.name
+        itemView.artist.text = "by ${album.artist}"
         val picasso = Picasso.get()
         picasso.setLoggingEnabled(true)
         picasso.load(album.image)
-            .resize(256, 256)
+            .transform(CropSquareTransformation())
+            .resize(512, 512)
             .into(itemView.imageView)
     }
 }
