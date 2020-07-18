@@ -16,4 +16,10 @@ class AlbumsAdapter(val albums: MutableList<Album> = mutableListOf(), val listen
     override fun onBindViewHolder(holder: AlbumViewHolder, position: Int) {
         holder.bindView(albums.get(position))
     }
+
+    fun updateData(albums: List<Album>) {
+        this.albums.clear()
+        this.albums.addAll(albums)
+        notifyDataSetChanged()
+    }
 }

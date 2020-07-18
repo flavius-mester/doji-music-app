@@ -13,7 +13,6 @@ class AlbumViewHolder(itemView: View, val listener: (Album) -> Unit) : RecyclerV
     }
     fun bindView(album: Album) {
         this.album = album
-
         itemView.label.text = album.name
         val picasso = Picasso.get()
         picasso.setLoggingEnabled(true)

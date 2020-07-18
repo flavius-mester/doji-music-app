@@ -2,10 +2,10 @@ package doji.music
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.transition.TransitionManager
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import doji.music.domain.Album
 import doji.music.domain.AlbumRepo
 import doji.music.presentation.AlbumsViewModel
@@ -35,16 +35,21 @@ class AlbumsActivity : AppCompatActivity() {
     }
 
     private val gridLayoutManager = GridLayoutManager(this@AlbumsActivity, 2)
-    private val linearLayoutManager = LinearLayoutManager(this@AlbumsActivity)
 
     private fun setupAlbums() = lifecycleScope.launch {
         albumsRV.setHasFixedSize(true)
         albumsRV.adapter = albumsAdapter
         albumsRV.layoutManager = gridLayoutManager
+        albumsRV.itemAnimator?.changeDuration = 1000
         albumsViewModel.send(AlbumsViewModel.Action.Init)
         albumsViewModel.state().collect {
             render(it)
         }
+    }
+
+    fun columnCountFromLayoutType(layout: AlbumsViewModel.Layout): Int = when(layout) {
+        AlbumsViewModel.Layout.Grid -> 2
+        AlbumsViewModel.Layout.List -> 1
     }
 
     private fun render(state: AlbumsViewModel.State) {
@@ -56,9 +61,12 @@ class AlbumsActivity : AppCompatActivity() {
     }
 
     private fun showAlbums(state: AlbumsViewModel.State.Albums) {
-        albumsRV.layoutManager = if(state.layout == AlbumsViewModel.Layout.Grid) gridLayoutManager else linearLayoutManager
-        albumsAdapter.albums.clear()
-        albumsAdapter.albums.addAll(state.albums)
-        albumsAdapter.notifyDataSetChanged()
+        albumsAdapter.updateData(state.albums)
+        albumsRV.post {
+            TransitionManager.beginDelayedTransition(albumsRV)
+            gridLayoutManager.spanCount = columnCountFromLayoutType(state.layout)
+            albumsAdapter.notifyItemRangeChanged(0, albumsAdapter.itemCount)
+
+        }
     }
 }

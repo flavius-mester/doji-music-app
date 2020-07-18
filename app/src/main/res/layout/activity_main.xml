@@ -14,15 +14,6 @@
         android:layout_height="wrap_content"
         android:text="Albums"/>
 
-    <ImageView
-        android:id="@+id/toggleLayout"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_margin="@dimen/common_spacing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_menu_gallery" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="@dimen/common_spacing"
         app:layout_constraintTop_toBottomOf="@id/toggleLayout"
@@ -32,5 +23,17 @@
         android:id="@+id/albumsRV"
         android:layout_height="wrap_content"
         android:layout_width="match_parent" />
+
+
+    <ImageView
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/toggleLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="@dimen/common_spacing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
