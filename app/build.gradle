@@ -33,6 +33,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation "androidx.cardview:cardview:1.0.0"
 
     implementation project(path: ':presentation')
     testImplementation 'junit:junit:4.12'

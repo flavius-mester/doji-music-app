@@ -15,4 +15,6 @@ class AlbumRepo {
             Album("High Voltage", "AC/DC", "https://lastfm.freetls.fastly.net/i/u/174s/591095f2549b4d9bbde16f471fa76e83.png")
         )
     }
+
+    fun getAlbum(albumName: String): Album = this.getAlbums().first { it.name == albumName }
 }

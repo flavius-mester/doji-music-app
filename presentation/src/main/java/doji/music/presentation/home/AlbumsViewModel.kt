@@ -1,4 +1,4 @@
-package doji.music.presentation
+package doji.music.presentation.home
 
 import doji.music.domain.Album
 import doji.music.domain.AlbumRepo
@@ -22,7 +22,8 @@ class AlbumsViewModel(val albumRepo: AlbumRepo) {
 
     private fun fetchAlbums() {
         val albums = albumRepo.getAlbums()
-        state.value = State.Albums(albums)
+        state.value =
+            State.Albums(albums)
     }
 
     private fun toggleAlbumsLayout(action: Action.ToggleLayout) {
@@ -47,7 +48,9 @@ class AlbumsViewModel(val albumRepo: AlbumRepo) {
         object List : Layout()
     }
 
-    private val state: MutableStateFlow<State> = MutableStateFlow(State.Empty)
+    private val state: MutableStateFlow<State> = MutableStateFlow(
+        State.Empty
+    )
     private val coroutineScope: CoroutineScope =
         CoroutineScope(SupervisorJob() + Dispatchers.Default)
 }

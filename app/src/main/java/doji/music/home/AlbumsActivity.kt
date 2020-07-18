@@ -1,4 +1,4 @@
-package doji.music
+package doji.music.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,20 +6,23 @@ import android.transition.TransitionManager
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import doji.music.R
 import doji.music.domain.Album
 import doji.music.domain.AlbumRepo
-import doji.music.presentation.AlbumsViewModel
+import doji.music.player.PlayerActivity
+import doji.music.presentation.home.AlbumsViewModel
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.album_item.view.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class AlbumsActivity : AppCompatActivity() {
-    val albumsViewModel: AlbumsViewModel = AlbumsViewModel(AlbumRepo())
-    val albumsAdapter = AlbumsAdapter(listener =  albumClickListener())
+    val albumsViewModel: AlbumsViewModel =
+        AlbumsViewModel(AlbumRepo())
+    val albumsAdapter =
+        AlbumsAdapter(listener = albumClickListener())
 
     private fun albumClickListener(): (Album) -> Unit = {
-
+        startActivity(PlayerActivity.launchIntent(this, albumName = it.name))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="@dimen/common_spacing"
-    tools:context=".AlbumsActivity">
+    tools:context=".home.AlbumsActivity">
 
     <TextView
         android:padding="@dimen/common_spacing"
