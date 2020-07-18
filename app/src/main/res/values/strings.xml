@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Doji Music</string>
+    <string name="albums_title">Albums</string>
 </resources>

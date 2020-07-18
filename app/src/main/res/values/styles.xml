@@ -7,4 +7,6 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Headline" parent="TextAppearance.AppCompat.Headline"/>
+    <style name="AlbumsTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
 </resources>
