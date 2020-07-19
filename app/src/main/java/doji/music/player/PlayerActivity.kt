@@ -30,6 +30,11 @@ class PlayerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player)
         setupPlayer()
+        setupButtons()
+    }
+
+    private fun setupButtons() {
+        backButton.setOnClickListener { finish() }
     }
 
     private fun setupPlayer()  = lifecycleScope.launch {

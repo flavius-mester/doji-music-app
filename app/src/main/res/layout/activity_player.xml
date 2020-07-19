@@ -9,58 +9,84 @@
     android:layout_height="match_parent"
     tools:context=".player.PlayerActivity">
 
+    <TextView
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
+        android:drawableLeft="@drawable/chevron_left"
+        android:drawablePadding="0dp"
+        android:textAlignment="textStart"
+        android:textAppearance="@style/Headline"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0" />
+
     <androidx.cardview.widget.CardView
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         app:cardCornerRadius="@dimen/cardRadius"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/common_spacing"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/common_spacing">
+
             <ImageView
-                android:adjustViewBounds="true"
                 android:id="@+id/cardImage"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true" />
+
             <View
-                android:background="@drawable/gradient"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/player_spacing"/>
+                android:layout_height="@dimen/player_spacing"
+                android:background="@drawable/gradient" />
+
             <TextView
                 android:id="@+id/playerAlbum"
-                android:textAppearance="@style/AlbumName"
-                tools:text="Album"
-                android:textAlignment="center"
-                android:paddingLeft="@dimen/common_spacing"
-                android:paddingRight="@dimen/common_spacing"
-                android:paddingTop="@dimen/text_spacing"
-                android:paddingBottom="0dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/common_spacing"
+                android:paddingTop="@dimen/text_spacing"
+                android:paddingRight="@dimen/common_spacing"
+                android:paddingBottom="0dp"
+                android:textAlignment="center"
+                android:textAppearance="@style/AlbumName"
+                android:textColor="@android:color/black"
+                tools:text="Album" />
+
             <TextView
                 android:id="@+id/playerArtist"
-                tools:text="Artist"
-                android:textAppearance="@style/AlbumName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:textAppearance="@style/AlbumName"
+                android:textColor="@android:color/black"
+                tools:text="Artist" />
+
             <ImageView
-                android:src="@drawable/player_progress"
-                android:adjustViewBounds="true"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/player_progress" />
+
             <ImageView
-                android:src="@drawable/player_controlls"
-                android:adjustViewBounds="true"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/player_controlls" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
