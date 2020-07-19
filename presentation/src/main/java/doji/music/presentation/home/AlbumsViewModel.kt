@@ -20,10 +20,9 @@ class AlbumsViewModel(val albumRepo: AlbumRepo) {
         }
     }
 
-    private fun fetchAlbums() {
+    private suspend fun fetchAlbums() {
         val albums = albumRepo.getAlbums()
-        state.value =
-            State.Albums(albums)
+        state.value = State.Albums(albums)
     }
 
     private fun toggleAlbumsLayout(action: Action.ToggleLayout) {

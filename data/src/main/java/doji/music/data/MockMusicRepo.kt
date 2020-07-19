@@ -2,10 +2,12 @@ package doji.music.data
 
 import doji.music.domain.Album
 import doji.music.domain.AlbumRepo
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class MockAlbumRepo: AlbumRepo {
-    override fun getAlbums(): List<Album> {
-        return listOf(
+    override suspend fun getAlbums(): List<Album>  = withContext(Dispatchers.IO) {
+        listOf(
             Album("Starboy", "Daft Punk", "https://lastfm.freetls.fastly.net/i/u/174s/dfd01019404313399f77999285f78aa9.png"),
             Album("Girls Like You", "Maroon 5", "https://lastfm.freetls.fastly.net/i/u/300x300/257768e32141f6ecbc6d863e06d0ee93.png"),
             Album("Senorit", "Camila & Shawn", "https://lastfm.freetls.fastly.net/i/u/174s/2f251cfb493fac20a0bb3c7ac49639d1.png"),
