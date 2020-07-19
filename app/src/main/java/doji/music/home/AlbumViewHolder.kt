@@ -3,7 +3,6 @@ package doji.music.home
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import doji.music.CropSquareTransformation
 import doji.music.domain.Album
 import kotlinx.android.synthetic.main.album_item.view.*
 
