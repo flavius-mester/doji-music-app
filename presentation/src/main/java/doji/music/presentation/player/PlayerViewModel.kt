@@ -20,8 +20,12 @@ class PlayerViewModel(val albumRepo: AlbumRepo) {
     }
 
     private suspend fun fetchAlbum(action: Action.FetchAlbum) {
-        val album = albumRepo.getAlbum(action.albumName)
-        state.value = State.AlbumLoaded(album)
+        val result = albumRepo.getAlbum(action.albumName)
+        val newState = when(result) {
+            is Album -> State.AlbumLoaded(result)
+            else -> State.Empty
+        }
+        state.value = newState
     }
 
     sealed class State {
