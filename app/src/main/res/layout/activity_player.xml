@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="@dimen/player_spacing"
+    android:paddingLeft="@dimen/player_spacing"
+    android:paddingRight="@dimen/player_spacing"
     android:background="@android:color/black"
     android:clipToPadding="false"
     android:layout_width="match_parent"
@@ -13,7 +14,7 @@
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/common_spacing"
+        android:paddingBottom="@dimen/text_spacing"
         android:text="@string/back"
         android:drawableLeft="@drawable/chevron_left"
         android:drawablePadding="0dp"
@@ -52,7 +53,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/player_spacing"
+                android:layout_height="@dimen/common_spacing"
                 android:background="@drawable/gradient" />
 
             <TextView
