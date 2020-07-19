@@ -19,8 +19,8 @@ class AlbumViewHolder(itemView: View, val listener: (Album) -> Unit) : RecyclerV
         val picasso = Picasso.get()
         picasso.setLoggingEnabled(true)
         picasso.load(album.image)
-            .transform(CropSquareTransformation())
-            .resize(512, 512)
+//            .transform(CropSquareTransformation())
+//            .resize(200, 200)
             .into(itemView.imageView)
     }
 }
