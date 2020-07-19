@@ -13,6 +13,7 @@
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/common_spacing"
         android:text="@string/back"
         android:drawableLeft="@drawable/chevron_left"
         android:drawablePadding="0dp"
@@ -34,7 +35,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/backButton">
 
         <LinearLayout
             android:layout_width="match_parent"
