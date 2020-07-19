@@ -7,7 +7,7 @@ import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.squareup.picasso.Picasso
 import doji.music.R
-import doji.music.domain.AlbumRepo
+import doji.music.data.MockAlbumRepo
 import kotlinx.coroutines.flow.collect
 import doji.music.presentation.player.PlayerViewModel
 import kotlinx.android.synthetic.main.activity_player.*
@@ -23,7 +23,7 @@ class PlayerActivity : AppCompatActivity() {
         }
     }
 
-    val playerViewModel: PlayerViewModel = PlayerViewModel(AlbumRepo())
+    val playerViewModel: PlayerViewModel = PlayerViewModel(MockAlbumRepo())
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

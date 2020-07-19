@@ -1,7 +1,10 @@
-package doji.music.domain
+package doji.music.data
 
-class AlbumRepo {
-    fun getAlbums(): List<Album> {
+import doji.music.domain.Album
+import doji.music.domain.AlbumRepo
+
+class MockAlbumRepo: AlbumRepo {
+    override fun getAlbums(): List<Album> {
         return listOf(
             Album("Starboy", "Daft Punk", "https://lastfm.freetls.fastly.net/i/u/174s/dfd01019404313399f77999285f78aa9.png"),
             Album("Girls Like You", "Maroon 5", "https://lastfm.freetls.fastly.net/i/u/300x300/257768e32141f6ecbc6d863e06d0ee93.png"),
@@ -15,6 +18,4 @@ class AlbumRepo {
             Album("High Voltage", "AC/DC", "https://lastfm.freetls.fastly.net/i/u/174s/591095f2549b4d9bbde16f471fa76e83.png")
         )
     }
-
-    fun getAlbum(albumName: String): Album = this.getAlbums().first { it.name == albumName }
 }
