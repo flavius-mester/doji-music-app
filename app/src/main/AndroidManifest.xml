@@ -12,11 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:screenOrientation="portrait"
             android:name=".player.PlayerActivity"
             android:theme="@style/PlayerTheme">
 
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".home.AlbumsActivity"
             android:theme="@style/AlbumsTheme">
             <intent-filter>
