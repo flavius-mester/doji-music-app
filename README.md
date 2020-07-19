@@ -1,4 +1,4 @@
-# fireball
+# Doji
 
 ## To run unit tests
 ```shell script
